@@ -4,6 +4,7 @@
     <p> Unit Price: <%=  order_product.product.price %> | Quantity: <%= order_product.quantity %> | Total Price: $<%= order_product.product.price * order_product.quantity %> million</p>
   <% end %>
   <p>Your Total: $<%= current_order.total_price %></p>
+  <p>Status: <%= current_order.status %></p>
 <% else %>
   <p>Your shopping cart is empty.</p>
 <% end %>
