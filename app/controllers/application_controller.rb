@@ -3,11 +3,11 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if session[:order_id]
-      Order.find(session[:order_id])
-    else
-      account = Account.new
-      account.orders.new
-    end
+    current_user.account.orders.new
+    # if session[:order_id]
+    #   Order.find(session[:order_id])
+    # else
+    #   current_user.account.orders.new
+    # end
   end
 end

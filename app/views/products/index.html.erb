@@ -1,5 +1,8 @@
 <h1>Buy yourself a galaxy, nebula, or planet! All transportation and security are your responsibility.</h1>
 
+<%#= render 'carts/show' %>
+
+<%= link_to 'cart', cart_path %>
 <% @products.each do |product| %>
   <h2><b><%= product.name %></b> <i> $<%= product.price %></i> million  </h2>
   <%= form_for @order_product do |f| %>
