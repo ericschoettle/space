@@ -12,7 +12,13 @@ class OrderProductsController < ApplicationController
     @product = @order.order_products.new(product_params)
     @order.save
     session[:order_id] = @order.id
-    redirect_to products_path
+
+    @product_id = product_params[:product_id]
+    respond_to do |f|
+      f.html { redirect_to products_path }
+      f.js
+    end
+
   end
 
   def destroy
