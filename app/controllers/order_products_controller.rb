@@ -22,7 +22,6 @@ class OrderProductsController < ApplicationController
     @product.destroy
     @order.save
 
-    binding.pry
     respond_to do |f|
       # f.html { redirect_to order_products_path }
       f.js
