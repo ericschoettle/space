@@ -8,6 +8,6 @@ class User < ApplicationRecord
   after_create :create_account
 
   def create_account
-    self.account.create
+    Account.create(:user_id => self.id)
   end
 end
