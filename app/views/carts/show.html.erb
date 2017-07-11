@@ -1,6 +1,6 @@
 <% if @order_products.any? %>
   <% @order_products.each do |order_product| %>
-    <p><%= order_product.product.name %> | <%#= button_to "Delete", {:controller => "order_products_controller",  :action => "destroy", :order_product => order_product, :quantity => order_product.quantity, :product_id => order_product.id}, :method => "delete" %> <%= link_to "Delete", order_product_path(order_product), :data => {:confirm => "You sure?", :method => "delete" } %></p>
+    <p><%= order_product.product.name %> | <%#= button_to "Delete", {:controller => "order_products_controller",  :action => "destroy", :order_product => order_product, :quantity => order_product.quantity, :product_id => order_product.id}, :method => "delete" %> <%= link_to "Delete", order_product, :data => {:confirm => "You sure?", :method => "delete", :remote => true } %></p>
     <p> Unit Price: <%=  order_product.product.price %> | Quantity: <%= order_product.quantity %> | Total Price: $<%= order_product.product.price * order_product.quantity %> million</p>
   <% end %>
   <p>Your Total: $<%= current_order.total_price %></p>

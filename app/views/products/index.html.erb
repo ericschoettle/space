@@ -2,7 +2,7 @@
 
 <%#= render 'carts/show' %>
 
-<%= link_to 'cart', cart_path %>
+<%#= link_to 'cart', cart_path, id: "test", remote: true %>
 <% @products.each do |product| %>
   <h2><b><%= product.name %></b> <i> $<%= product.price %></i> million  </h2>
   <%= form_for @order_product do |f| %>

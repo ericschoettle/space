@@ -1,4 +1,12 @@
 class OrderProductsController < ApplicationController
+  def show
+    @order_products = current_order.order_products
+  end
+
+  def index
+    @order_products = current_order.order_products
+  end
+
   def create
     @order = current_order
     @product = @order.order_products.new(product_params)
@@ -8,11 +16,17 @@ class OrderProductsController < ApplicationController
   end
 
   def destroy
+    @order_product = OrderProduct.find(params[:id])
     @order = current_order
     @product = @order.order_products.find(params[:id])
     @product.destroy
     @order.save
-    redirect_to cart_path
+
+    binding.pry
+    respond_to do |f|
+      # f.html { redirect_to order_products_path }
+      f.js
+    end
   end
 
   private

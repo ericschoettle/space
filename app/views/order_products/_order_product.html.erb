@@ -1,0 +1,8 @@
+<%= form_for order_product, remote: true do |f| %>
+  <%= f.label order_product.product.name %>
+  <%= link_to "(remove)", order_product, method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+<% end %>
+
+<p id="test">
+  this is a test paragraph
+</p>
