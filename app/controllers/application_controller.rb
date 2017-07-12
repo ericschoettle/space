@@ -5,14 +5,12 @@ class ApplicationController < ActionController::Base
   def current_order
     # If current_user has an unfinished order, return that order
     if return_user_order
-      puts "current user unfinished order"
       return return_user_order
     # Else if there is an existing odrder (whoever it belongs to) and it is in progress, return that order
     elsif session[:order_id] && Order.find(session[:order_id]).status == "In progress"
       return Order.find(session[:order_id])
     # else make a new order
     else
-      puts "new order"
       return current_or_guest_user.account.orders.new
     end
   end
