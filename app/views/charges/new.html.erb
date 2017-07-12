@@ -6,7 +6,7 @@
       </div>
     <% end %>
     <label class="amount">
-      <span>Amount: <%= number_to_currency((current_order.total_price/100).to_i) %></span>
+      <span>Amount: $<%= current_order.total_price.to_i %> Million</span>
     </label>
   </article>
 

@@ -1,3 +1,3 @@
 $('#edit_order_product_<%= @order_product.id %>').remove();
-$('#cart-count').html(<%= @order.order_products.count %>);
-$('#cart-total').html(<%= @order.total_price %>);
+$('.cart-count').html(<%= @order.order_products.count %>);
+$('.cart-total').html(<%= @order.total_price %>);

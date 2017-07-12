@@ -1,18 +1,7 @@
 <h1>Buy yourself a galaxy, nebula, or planet! All transportation and security are your responsibility.</h1>
 
-<%#= render 'carts/show' %>
+<%= will_paginate @products %>
 
-<%#= link_to 'cart', cart_path, id: "test", remote: true %>
-<% @products.each do |product| %>
-  <h2><b><%= product.name %></b> <i> $<%= product.price %></i> million  </h2>
-  <%= form_for @order_product, remote: true do |f| %>
-    <%= f.hidden_field :product_id, value: product.id %>
-    <%= f.hidden_field :quantity, value: 1 %>
-    <% if current_order.products.exclude?(product) %>
-      <%= f.submit "Add to cart", remote: true, id: "add_to_cart_#{product.id}" %>
-    <% else %>
-      <span>Already in your cart</span>
-    <% end %>
-    <span id="added_<%= product.id %>"></span>
-  <% end %>
-<% end %>
+<%= render 'products' %>
+<br>
+<%= will_paginate @products %>

@@ -1,4 +1,4 @@
-$('#cart-count').html(<%= @order.order_products.count %>);
-$('#cart-total').html(<%= @order.total_price %>);
+$('.cart-count').html(<%= @order.order_products.count %>);
+$('.cart-total').html(<%= @order.total_price %>);
 $('#add_to_cart_<%= @product_id %>').hide();
 $('#added_<%= @product_id %>').html("Added!");

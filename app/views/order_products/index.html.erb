@@ -5,4 +5,7 @@
   <%= render @order_products %>
 </div>
 
+<br>
+<h3>Total: $ <span class="cart-total"><%= current_order.total_price.to_i %></span> Million</h3>
+
 <%= link_to "Checkout", new_charge_path %>
