@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if session[:order_id]
+    if session[:order_id] && Order.find(session[:order_id]).status == "In progress"
       Order.find(session[:order_id])
     else
       current_or_guest_user.account.orders.new

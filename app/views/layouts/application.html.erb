@@ -14,7 +14,7 @@
     <%= link_to "Sign In", new_user_session_path %>  &nbsp &nbsp
     <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
     Your cart: <span id="cart-count"><%= @order_products.count %></span> items
-    Total: $<span id="cart-total"><%= current_order.total_price %></span> million
+    Total: $<span id="cart-total"><%= current_order.total_price.to_i %></span> million
     <%= link_to "Your Cart", order_products_path %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
