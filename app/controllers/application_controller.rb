@@ -3,10 +3,17 @@ class ApplicationController < ActionController::Base
   helper_method :current_order
 
   def current_order
-    if session[:order_id] && Order.find(session[:order_id]).status == "In progress"
-      Order.find(session[:order_id])
+    # If current_user has an unfinished order, return that order
+    if return_user_order
+      puts "current user unfinished order"
+      return return_user_order
+    # Else if there is an existing odrder (whoever it belongs to) and it is in progress, return that order
+    elsif session[:order_id] && Order.find(session[:order_id]).status == "In progress"
+      return Order.find(session[:order_id])
+    # else make a new order
     else
-      current_or_guest_user.account.orders.new
+      puts "new order"
+      return current_or_guest_user.account.orders.new
     end
   end
 
@@ -32,6 +39,17 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def return_user_order
+    if current_user
+      current_user.account.orders.each do |order|
+        if order.status == "In progress"
+          return order
+        end
+      end
+    end
+    return false
+  end
 
   def logging_in
     account = guest_user.account
