@@ -40,6 +40,9 @@ gem 'stripe'
 # Pagination
 gem 'will_paginate', '~> 3.1.0'
 
+# Admin Capabilities
+gem 'rails_admin', '~> 1.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

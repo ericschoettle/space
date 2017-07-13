@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_order
+  helper_method :sorted_products
+
+  def sorted_products
+    Product.order(sort_by + " " + sort_direction).paginate(page: params[:page], per_page: 10)
+  end
 
   def current_order
     # If current_user has an unfinished order, return that order
@@ -37,6 +42,13 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def sort_by
+    session[:sort_by] ||= "price"
+  end
+
+  def sort_direction
+    session[:sort_direction] ||= "ASC"
+  end
 
   def return_user_order
     if current_user

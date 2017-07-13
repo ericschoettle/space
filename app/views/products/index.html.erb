@@ -3,5 +3,20 @@
 <%= will_paginate @products %>
 
 <%= render 'products' %>
+
 <br>
 <%= will_paginate @products %>
+
+<%= form_tag products_path, :method => :post do %>
+  <%= radio_button_tag(:direction, "ASC") %>
+  <%= label_tag(:ascending, "Ascending") %>
+  <%= radio_button_tag(:direction, "DESC") %>
+  <%= label_tag(:descending, "Descending") %><br>
+
+  <%= radio_button_tag(:sort_by, "price") %>
+  <%= label_tag(:price, "Price") %>
+  <%= radio_button_tag(:sort_by, "name") %>
+  <%= label_tag(:name, "Alphabetically") %>
+
+  <%= submit_tag("Sort") %>
+<% end %>
