@@ -1,11 +1,13 @@
-<h1>Cart</h1>
+<h1>Cart*</h1>
 
-<h2>(warning: all non-singularity products may have difficulty fitting into a shopping cart)</h2>
 <div class="order_products" id="order_products">
   <%= render @order_products %>
 </div>
 
 <br>
-<h3>Total: $ <span class="cart-total"><%= current_order.total_price.to_i %></span> Million</h3>
+<h3>Total: $<span class="cart-total"><%= current_order.total_price.to_i %></span> Million</h3>
 
 <%= link_to "Checkout", new_charge_path %>
+
+
+<h5> *Non-singularity products may be too large to fit in shopping cart. Shopping cart not observable inside of Schwarzchild radius, but cart is not thought to remain intact)</h5>

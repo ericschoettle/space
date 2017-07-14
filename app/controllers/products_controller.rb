@@ -1,8 +1,17 @@
 class ProductsController < ApplicationController
   def index
     @products = sorted_products
-    @order_product = current_order.order_products.new
+    if params[:product_id]
+      @order_product = OrderProduct.find(params[:product_id])
+    else
+      @order_product = current_order.order_products.new
+    end
     @order_products = current_order.order_products
+    binding.pry
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create

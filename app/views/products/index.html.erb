@@ -2,10 +2,18 @@
 
 <%= will_paginate @products %>
 
-<%= render 'products' %>
+<%= render @products %>
 
 <br>
 <%= will_paginate @products %>
+
+<br>
+
+<div class="cart_module">
+
+</div>
+
+<%= link_to "Your Cart!!!", products_path, id: "order_products_link", remote: true %>
 
 <%= form_tag products_path, :method => :post do %>
   <%= radio_button_tag(:direction, "ASC") %>

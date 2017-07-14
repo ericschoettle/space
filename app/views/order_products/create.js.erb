@@ -1,4 +1,10 @@
 $('.cart-count').html(<%= @order.order_products.count %>);
 $('.cart-total').html(<%= @order.total_price %>);
+
 $('#add_to_cart_<%= @product_id %>').hide();
 $('#added_<%= @product_id %>').html("Added!");
+$('#added_<%= @product_id %>').html("Added!");
+
+
+alert(<%= j product_id %>)
+$('#order_products_link').append('<%= j render order_product/order_product, :order_project => product_id %>')

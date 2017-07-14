@@ -1,1 +1,2 @@
-$("#products").html("<%= escape_javascript(render("products")) %>");
+alert('products/index.js.erb success')
+$("#order_products_link").hide().after("<%= j render ('order_products/order_products_module') %>");
